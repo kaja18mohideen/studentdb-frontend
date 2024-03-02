@@ -31,7 +31,7 @@ const StudentList = () => {
   }
 
   const handleDeleteStudent = (studentId) => {
-    axios.delete(`https://kaja-db-stu.onrender.com//api/students/${studentId}`,)
+    axios.delete(`https://kaja-db-stu.onrender.com/api/students/${studentId}`,)
       .then(res => setStudents(res.data))
       .catch(err => console.log(err))
   }
@@ -129,7 +129,7 @@ function MyModal({ open, onHide, data, setData, changeHandler, students, setStud
           </Button>
           <Button variant="primary" onClick={() => {
             if (data.id) {
-              axios.put(`https://kaja-db-stu.onrender.com//api/students/${data.id}`, data).then(res => {
+              axios.put(`https://kaja-db-stu.onrender.com/api/students/${data.id}`, data).then(res => {
                 console.log(res.data)
                 setStudents(res.data)
                 setData(defaultStudent)
@@ -139,7 +139,7 @@ function MyModal({ open, onHide, data, setData, changeHandler, students, setStud
                 console.log(err)
               })
             } else {
-              axios.post('https://kaja-db-stu.onrender.com//api/students', data)
+              axios.post('https://kaja-db-stu.onrender.com/api/students', data)
                 .then(res => {
                   setStudents(prev => [...prev, ...res.data])
                   setData(defaultStudent)
